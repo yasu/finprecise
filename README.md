@@ -11,7 +11,7 @@ finprecise is not another collection of financial helper functions. It is a calc
 Existing TypeScript/JavaScript financial libraries have gaps:
 
 - **[financial](https://github.com/lmammino/financial)** covers numpy-financial basics but explicitly excludes arbitrary-precision decimals
-- **financejs** and **xirr** are aging implementations (2017, 2020) with no day-count or rounding controls
+- **[financejs](https://www.npmjs.com/package/financejs)** and **[xirr](https://www.npmjs.com/package/xirr)** are aging implementations (2017, 2020) with no day-count or rounding controls
 - None expose solver diagnostics ("did it converge?", "is the solution unique?")
 
 finprecise fills these gaps:
