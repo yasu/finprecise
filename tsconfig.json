@@ -20,6 +20,7 @@
     { "path": "packages/loans" },
     { "path": "packages/depreciation" },
     { "path": "packages/format" },
-    { "path": "packages/fixtures" }
+    { "path": "packages/fixtures" },
+    { "path": "packages/bonds" }
   ]
 }
