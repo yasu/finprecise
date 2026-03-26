@@ -1,6 +1,6 @@
 {
   "name": "@finprecise/format",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Display formatting for financial values using Intl.NumberFormat",
   "type": "module",
   "main": "./dist/index.js",

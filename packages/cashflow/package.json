@@ -1,6 +1,6 @@
 {
   "name": "@finprecise/cashflow",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Time value of money: PV, FV, PMT, NPV, IRR, XIRR and more",
   "type": "module",
   "main": "./dist/index.js",

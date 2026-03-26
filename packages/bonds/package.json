@@ -1,6 +1,6 @@
 {
   "name": "@finprecise/bonds",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Bond analytics: pricing, yield-to-maturity (YTM), Macaulay duration, modified duration, convexity",
   "type": "module",
   "main": "./dist/index.js",

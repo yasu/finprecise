@@ -1,6 +1,6 @@
 {
   "name": "@finprecise/fixtures",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Verification fixtures: numpy-financial, Excel, and LibreOffice compatible test data",
   "type": "module",
   "main": "./dist/index.js",
