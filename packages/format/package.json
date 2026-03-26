@@ -1,0 +1,34 @@
+{
+  "name": "@finprecise/format",
+  "version": "0.1.0",
+  "description": "Display formatting for financial values using Intl.NumberFormat",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "license": "MIT",
+  "dependencies": {
+    "@finprecise/core": "workspace:*",
+    "decimal.js": "^10.5.0"
+  },
+  "keywords": ["finance", "financial", "format", "currency", "intl", "typescript"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yasu/finprecise.git",
+    "directory": "packages/format"
+  },
+  "homepage": "https://github.com/yasu/finprecise",
+  "bugs": {
+    "url": "https://github.com/yasu/finprecise/issues"
+  },
+  "author": "finprecise contributors",
+  "publishConfig": {
+    "access": "public"
+  }
+}

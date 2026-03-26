@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.turbo/
+coverage/
+*.tsbuildinfo
+# TS build artifacts from test/config files
+packages/*/tests/**/*.js
+packages/*/tests/**/*.js.map
+packages/*/tests/**/*.d.ts
+packages/*/tests/**/*.d.ts.map
+vitest.config.js
+vitest.config.js.map
+vitest.config.d.ts
+vitest.config.d.ts.map

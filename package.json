@@ -1,0 +1,31 @@
+{
+  "name": "finprecise",
+  "private": true,
+  "description": "A reference-grade financial calculation engine for TypeScript. Explicit assumptions, reproducible results, verifiable answers.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@10.7.1",
+  "scripts": {
+    "build": "tsc --build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "clean": "rm -rf packages/*/dist packages/*/*.tsbuildinfo"
+  },
+  "devDependencies": {
+    "fast-check": "^4.6.0",
+    "typescript": "^5.8.3",
+    "vitest": "^4.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yasu/finprecise.git"
+  },
+  "homepage": "https://github.com/yasu/finprecise",
+  "bugs": {
+    "url": "https://github.com/yasu/finprecise/issues"
+  },
+  "author": "finprecise contributors"
+}
