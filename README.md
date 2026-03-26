@@ -29,6 +29,7 @@ finprecise fills these gaps:
 | `@finprecise/cashflow` | PV, FV, PMT, NPER, RATE, NPV, XNPV, IRR, XIRR, MIRR |
 | `@finprecise/loans` | Amortization schedules: level-payment, level-principal, interest-only, bullet, variable-rate, prepayment |
 | `@finprecise/depreciation` | SLN, DB, DDB, SYD (Excel-compatible) |
+| `@finprecise/bonds` | Bond pricing, YTM, Macaulay/modified duration, convexity |
 | `@finprecise/format` | Display formatting via `Intl.NumberFormat` (separated from calculation) |
 | `@finprecise/fixtures` | Verification data for numpy-financial and Excel compatibility |
 
@@ -202,6 +203,7 @@ packages/
   cashflow/       — TVM functions, NPV, IRR, XIRR, MIRR
   loans/          — Amortization schedule engine
   depreciation/   — SLN, DB, DDB, SYD
+  bonds/          — Bond pricing, YTM, duration, convexity
   format/         — Display formatting (Intl.NumberFormat)
   fixtures/       — Verification data
 ```
