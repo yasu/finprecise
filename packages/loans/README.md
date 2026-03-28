@@ -20,7 +20,7 @@ import { loanSchedule } from "@finprecise/loans";
 const schedule = loanSchedule({
   principal: "350000",
   periods: 360,
-  repayment: { kind: "level-payment", timing: "end" },
+  repayment: { kind: "level-payment" },
   rateSteps: [
     { from: 1, annualRate: "0.0475" },
     { from: 37, annualRate: "0.0610" },  // rate changes after 3 years
@@ -48,7 +48,6 @@ console.log(`Total payment: ${schedule.summary.totalPayment}`);
 | `level-principal` | Equal principal payment each period (元金均等) |
 | `interest-only` | Pay only interest, principal at maturity |
 | `bullet` | No payments until maturity (lump sum) |
-| `custom` | Custom payment schedule |
 
 ### Features
 

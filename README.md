@@ -12,12 +12,12 @@ Existing TypeScript/JavaScript financial libraries have gaps:
 
 - **[financial](https://github.com/lmammino/financial)** covers numpy-financial basics but explicitly excludes arbitrary-precision decimals
 - **[financejs](https://www.npmjs.com/package/financejs)** and **[xirr](https://www.npmjs.com/package/xirr)** are aging implementations (2017, 2020) with no day-count or rounding controls
-- None expose solver diagnostics ("did it converge?", "is the solution unique?")
+- None expose solver diagnostics ("did it converge?", "why did it fail?")
 
 finprecise fills these gaps:
 
 - **Decimal-first**: All calculations use `decimal.js` — no floating-point surprises
-- **Assumptions are explicit**: Day count convention, compounding frequency, payment timing, and rounding mode are API parameters, not hidden defaults
+- **Assumptions are explicit**: Day count convention, compounding frequency, payment timing, and rounding mode are API parameters — sensible defaults exist where industry convention is clear, but nothing is hidden
 - **Solver transparency**: IRR/XIRR/rate return `SolveResult` — convergence status, iteration count, and failure reasons
 - **Verification-ready**: Ships with fixtures cross-referenced against numpy-financial and Excel
 
@@ -42,15 +42,17 @@ npm install @finprecise/core @finprecise/cashflow
 ### Time Value of Money
 
 ```ts
+import { periodicRate } from "@finprecise/core";
 import { pv, pmt, irr, xirr } from "@finprecise/cashflow";
 
-// Monthly payment on a $200,000 mortgage at 6% for 30 years
-const payment = pmt("0.005", "360", "200000");
+// Monthly payment on a $200,000 mortgage at 6% annual for 30 years
+const monthlyRate = periodicRate("0.06", "monthly"); // → 0.005
+const payment = pmt(monthlyRate, "360", "200000");
 // → -1199.10 (you pay $1,199.10/month)
 
-// Present value of $100/month for 10 years at 5% annual
-const presentValue = pv("0.004167", "120", "-100");
-// → 9428.14
+// Present value of $1,000/year for 10 years at 5%
+const presentValue = pv("0.05", "10", "-1000");
+// → 7721.73
 
 // IRR with solver diagnostics
 const result = irr(["-100000", "30000", "35000", "40000", "25000"]);
@@ -90,7 +92,7 @@ import { loanSchedule } from "@finprecise/loans";
 const schedule = loanSchedule({
   principal: "350000",
   periods: 360,
-  repayment: { kind: "level-payment", timing: "end" },
+  repayment: { kind: "level-payment" },
   rateSteps: [
     { from: 1, annualRate: "0.0475" },
     { from: 37, annualRate: "0.0610" },
@@ -145,13 +147,13 @@ nominalAnnualRate("0.126825", "monthly"); // → 0.12...
 
 ### 1. Assumptions Are API Parameters
 
-Every function that depends on conventions requires them explicitly:
+Every function that depends on conventions exposes them as API parameters. Sensible defaults are provided where industry convention is clear, but all can be overridden explicitly:
 
-- **`PaymentTiming`**: `"begin"` or `"end"` — no hidden default
-- **`DayCountConvention`**: `"act/365-fixed"`, `"30/360"`, `"act/act-isda"`, etc.
+- **`PaymentTiming`**: `"begin"` or `"end"` (default `"end"` — ordinary annuity, matching Excel/numpy-financial)
+- **`DayCountConvention`**: `"act/365-fixed"`, `"30/360"`, `"act/act-isda"`, etc. (default `"act/365-fixed"` for XIRR/XNPV)
 - **`CompoundingFrequency`**: `"monthly"`, `"quarterly"`, `"continuous"`, etc.
 - **`RoundingMode`**: `"half-up"`, `"half-even"`, `"down"`, etc.
-- **`SolverConfig`**: method, guess, maxIterations, tolerance
+- **`SolverConfig`**: method, guess, maxIterations, tolerance (default: hybrid, 0.10, 128, 1e-12)
 
 ### 2. Solver Results Are Transparent
 
@@ -160,7 +162,7 @@ IRR, XIRR, and RATE return a discriminated union:
 ```ts
 type SolveResult =
   | { ok: true;  value: Decimal; iterations: number }
-  | { ok: false; reason: "no-bracket" | "no-convergence" | "multiple-roots"; detail?: string }
+  | { ok: false; reason: "no-bracket" | "no-convergence"; detail?: string }
 ```
 
 ### 3. Decimal-First, Display-Last

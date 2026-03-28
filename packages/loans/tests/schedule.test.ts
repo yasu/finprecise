@@ -7,7 +7,7 @@ describe("loanSchedule - level-payment", () => {
     const result = loanSchedule({
       principal: "100000",
       periods: 12,
-      repayment: { kind: "level-payment", timing: "end" },
+      repayment: { kind: "level-payment" },
       rateSteps: [{ from: 1, annualRate: "0.06" }],
       accrual: { dayCount: "30/360", compounding: "monthly" },
       rounding: { interest: "half-up", payment: "half-up", balance: "half-up", scale: 2 },
@@ -19,7 +19,7 @@ describe("loanSchedule - level-payment", () => {
     const result = loanSchedule({
       principal: "100000",
       periods: 12,
-      repayment: { kind: "level-payment", timing: "end" },
+      repayment: { kind: "level-payment" },
       rateSteps: [{ from: 1, annualRate: "0.06" }],
       accrual: { dayCount: "30/360", compounding: "monthly" },
       rounding: { interest: "half-up", payment: "half-up", balance: "half-up", scale: 2 },
@@ -32,7 +32,7 @@ describe("loanSchedule - level-payment", () => {
     const result = loanSchedule({
       principal: "100000",
       periods: 60,
-      repayment: { kind: "level-payment", timing: "end" },
+      repayment: { kind: "level-payment" },
       rateSteps: [{ from: 1, annualRate: "0.05" }],
       accrual: { dayCount: "30/360", compounding: "monthly" },
       rounding: { interest: "half-up", payment: "half-up", balance: "half-up", scale: 2 },
@@ -44,7 +44,7 @@ describe("loanSchedule - level-payment", () => {
     const result = loanSchedule({
       principal: "100000",
       periods: 12,
-      repayment: { kind: "level-payment", timing: "end" },
+      repayment: { kind: "level-payment" },
       rateSteps: [{ from: 1, annualRate: "0.12" }],
       accrual: { dayCount: "30/360", compounding: "monthly" },
       rounding: { interest: "half-up", payment: "half-up", balance: "half-up", scale: 2 },
@@ -59,7 +59,7 @@ describe("loanSchedule - level-principal", () => {
     const result = loanSchedule({
       principal: "120000",
       periods: 12,
-      repayment: { kind: "level-principal", timing: "end" },
+      repayment: { kind: "level-principal" },
       rateSteps: [{ from: 1, annualRate: "0.06" }],
       accrual: { dayCount: "30/360", compounding: "monthly" },
       rounding: { interest: "half-up", payment: "half-up", balance: "half-up", scale: 2 },
@@ -73,7 +73,7 @@ describe("loanSchedule - level-principal", () => {
     const result = loanSchedule({
       principal: "120000",
       periods: 12,
-      repayment: { kind: "level-principal", timing: "end" },
+      repayment: { kind: "level-principal" },
       rateSteps: [{ from: 1, annualRate: "0.12" }],
       accrual: { dayCount: "30/360", compounding: "monthly" },
       rounding: { interest: "half-up", payment: "half-up", balance: "half-up", scale: 2 },
@@ -87,7 +87,7 @@ describe("loanSchedule - interest-only", () => {
     const result = loanSchedule({
       principal: "100000",
       periods: 12,
-      repayment: { kind: "interest-only", timing: "end" },
+      repayment: { kind: "interest-only" },
       rateSteps: [{ from: 1, annualRate: "0.06" }],
       accrual: { dayCount: "30/360", compounding: "monthly" },
       rounding: { interest: "half-up", payment: "half-up", balance: "half-up", scale: 2 },
@@ -105,7 +105,7 @@ describe("loanSchedule - bullet", () => {
     const result = loanSchedule({
       principal: "100000",
       periods: 12,
-      repayment: { kind: "bullet", timing: "end" },
+      repayment: { kind: "bullet" },
       rateSteps: [{ from: 1, annualRate: "0.06" }],
       accrual: { dayCount: "30/360", compounding: "monthly" },
       rounding: { interest: "half-up", payment: "half-up", balance: "half-up", scale: 2 },
@@ -125,7 +125,7 @@ describe("loanSchedule - variable rate", () => {
     const result = loanSchedule({
       principal: "100000",
       periods: 24,
-      repayment: { kind: "level-payment", timing: "end" },
+      repayment: { kind: "level-payment" },
       rateSteps: [
         { from: 1, annualRate: "0.04" },
         { from: 13, annualRate: "0.06" },
@@ -144,7 +144,7 @@ describe("loanSchedule - grace periods", () => {
     const result = loanSchedule({
       principal: "100000",
       periods: 15,
-      repayment: { kind: "level-payment", timing: "end" },
+      repayment: { kind: "level-payment" },
       rateSteps: [{ from: 1, annualRate: "0.06" }],
       accrual: { dayCount: "30/360", compounding: "monthly" },
       rounding: { interest: "half-up", payment: "half-up", balance: "half-up", scale: 2 },
@@ -165,7 +165,7 @@ describe("loanSchedule - prepayment", () => {
     const result = loanSchedule({
       principal: "100000",
       periods: 24,
-      repayment: { kind: "level-payment", timing: "end" },
+      repayment: { kind: "level-payment" },
       rateSteps: [{ from: 1, annualRate: "0.06" }],
       accrual: { dayCount: "30/360", compounding: "monthly" },
       rounding: { interest: "half-up", payment: "half-up", balance: "half-up", scale: 2 },
@@ -184,7 +184,7 @@ describe("loanSchedule - fees", () => {
     const result = loanSchedule({
       principal: "100000",
       periods: 12,
-      repayment: { kind: "level-payment", timing: "end" },
+      repayment: { kind: "level-payment" },
       rateSteps: [{ from: 1, annualRate: "0.06" }],
       accrual: { dayCount: "30/360", compounding: "monthly" },
       rounding: { interest: "half-up", payment: "half-up", balance: "half-up", scale: 2 },

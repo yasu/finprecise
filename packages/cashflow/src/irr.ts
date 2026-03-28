@@ -83,10 +83,12 @@ export function xirr(options: {
     return { ok: false, reason: "no-convergence", detail: "At least 2 cashflows required" };
   }
 
-  const cfs = cashflows.map((cf) => ({
-    amount: toDecimal(cf.amount),
-    date: cf.date,
-  }));
+  const cfs = cashflows
+    .map((cf) => ({
+      amount: toDecimal(cf.amount),
+      date: cf.date,
+    }))
+    .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
 
   const hasPositive = cfs.some((cf) => cf.amount.gt(0));
   const hasNegative = cfs.some((cf) => cf.amount.lt(0));

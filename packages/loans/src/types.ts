@@ -8,16 +8,13 @@ export type RepaymentKind =
   | "level-payment"      // 元利均等 (equal total payment)
   | "level-principal"    // 元金均等 (equal principal payment)
   | "interest-only"      // 利息のみ
-  | "bullet"             // 最終回一括
-  | "custom";            // Custom payment schedule
+  | "bullet";            // 最終回一括
 
 /**
  * Repayment configuration.
  */
 export interface RepaymentConfig {
   kind: RepaymentKind;
-  /** Payment timing: begin or end of period */
-  timing: "begin" | "end";
 }
 
 /**
@@ -52,7 +49,7 @@ export interface LoanScheduleInput {
   principal: DecimalLike;
   /** Total number of payment periods */
   periods: number;
-  /** Repayment method and timing */
+  /** Repayment method */
   repayment: RepaymentConfig;
   /** Rate steps for fixed or variable rate */
   rateSteps: RateStep[];

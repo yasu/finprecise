@@ -115,7 +115,7 @@ Each point has its own configurable rounding mode and scale.
 ```ts
 type SolveResult =
   | { ok: true;  value: Decimal; iterations: number }
-  | { ok: false; reason: "no-bracket" | "no-convergence" | "multiple-roots"; detail?: string }
+  | { ok: false; reason: "no-bracket" | "no-convergence"; detail?: string }
 ```
 
 ### Defaults

@@ -30,7 +30,7 @@ export const DEFAULT_SOLVER: SolverConfig = {
  */
 export type SolveResult =
   | { ok: true; value: Decimal; iterations: number }
-  | { ok: false; reason: "no-bracket" | "no-convergence" | "multiple-roots"; detail?: string };
+  | { ok: false; reason: "no-bracket" | "no-convergence"; detail?: string };
 
 /**
  * Newton-Raphson solver.
@@ -120,14 +120,21 @@ export function solveHybrid(
     [toDecimal("-0.999"), toDecimal("100")],
   ];
 
+  let allNoBracket = true;
   for (const [a, b] of tryBrackets) {
     const result = solveBisection(f, a, b, {
       maxIterations: config.maxIterations,
       tolerance: config.tolerance,
     });
     if (result.ok) return result;
+    if (!result.ok && result.reason !== "no-bracket") {
+      allNoBracket = false;
+    }
   }
 
+  if (allNoBracket) {
+    return { ok: false, reason: "no-bracket", detail: "No sign change found in any attempted bracket" };
+  }
   return { ok: false, reason: "no-convergence", detail: "Neither Newton nor bisection converged" };
 }
 
