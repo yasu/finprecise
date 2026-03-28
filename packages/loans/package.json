@@ -1,6 +1,6 @@
 {
   "name": "@finprecise/loans",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Loan amortization schedules: level-payment, level-principal, interest-only, bullet, variable-rate, prepayment",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,13 +11,23 @@
       "default": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "dependencies": {
     "@finprecise/core": "workspace:*",
     "decimal.js": "^10.5.0"
   },
-  "keywords": ["finance", "financial", "loan", "amortization", "mortgage", "schedule", "typescript"],
+  "keywords": [
+    "finance",
+    "financial",
+    "loan",
+    "amortization",
+    "mortgage",
+    "schedule",
+    "typescript"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/yasu/finprecise.git",

@@ -1,6 +1,6 @@
 {
   "name": "@finprecise/fixtures",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Verification fixtures: numpy-financial, Excel, and LibreOffice compatible test data",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,13 +11,22 @@
       "default": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "dependencies": {
     "@finprecise/core": "workspace:*",
     "decimal.js": "^10.5.0"
   },
-  "keywords": ["finance", "financial", "fixtures", "test-data", "verification", "typescript"],
+  "keywords": [
+    "finance",
+    "financial",
+    "fixtures",
+    "test-data",
+    "verification",
+    "typescript"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/yasu/finprecise.git",

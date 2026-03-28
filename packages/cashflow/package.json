@@ -1,6 +1,6 @@
 {
   "name": "@finprecise/cashflow",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Time value of money: PV, FV, PMT, NPV, IRR, XIRR and more",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,13 +11,26 @@
       "default": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "dependencies": {
     "@finprecise/core": "workspace:*",
     "decimal.js": "^10.5.0"
   },
-  "keywords": ["finance", "financial", "pv", "fv", "pmt", "irr", "xirr", "npv", "time-value-of-money", "typescript"],
+  "keywords": [
+    "finance",
+    "financial",
+    "pv",
+    "fv",
+    "pmt",
+    "irr",
+    "xirr",
+    "npv",
+    "time-value-of-money",
+    "typescript"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/yasu/finprecise.git",
